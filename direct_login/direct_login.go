@@ -23,12 +23,16 @@ func GetDirectLoginToken(obpApiHost, user, password, consumerKey string) string 
 		fmt.Print(err.Error())
 		os.Exit(1)
 	}
+	defer response.Body.Close()
 
 	responseData, err := ioutil.ReadAll(response.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
 	var directLogin DirectLoginToken
-	json.Unmarshal(responseData, &directLogin)
+	err = json.Unmarshal(responseData, &directLogin)
+	if err != nil {
+		log.Fatal("Could not get direct login token from server response.")
+	}
 	return string(directLogin.Token)
 }
