@@ -1,0 +1,6 @@
+OBP_HOSTNAME=https://apisandbox.openbankproject.com
+OBP_BANK_ID=mybankid
+OBP_USERNAME=myusername
+OBP_PASSWORD=myuserpassword
+OBP_CONSUMER_KEY=myconsumerkey
+OBP_LOG_LEVEL=INFO
